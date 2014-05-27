@@ -3,7 +3,7 @@ require 'active_support/core_ext/hash/conversions'
 module RablRails
   module Renderers
     module XML
-      include Renderers::Hash
+      include Renderers::HASH
       extend self
 
       def format_output(hash, options = {})

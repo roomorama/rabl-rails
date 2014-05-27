@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestXMLRenderer < MiniTest::Unit::TestCase
+class TestXMLRenderer < Minitest::Test
   INDENT_REGEXP = /\n(\s)*/
   HEADER_REGEXP = /<[^>]+>/
 
@@ -19,7 +19,7 @@ class TestXMLRenderer < MiniTest::Unit::TestCase
     end
 
     it 'extends hash renderer' do
-      RablRails::Renderers::XML.ancestors.include?(RablRails::Renderers::Hash)
+      RablRails::Renderers::XML.ancestors.include?(RablRails::Renderers::HASH)
     end
 
     it 'uses global XML options' do

@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestCompiler < MiniTest::Unit::TestCase
+class TestCompiler < Minitest::Test
   describe 'compiler' do
     def extract_attributes(nodes)
       nodes.map(&:hash)
@@ -199,7 +199,7 @@ class TestCompiler < MiniTest::Unit::TestCase
       template = RablRails::CompiledTemplate.new
       template.add_node RablRails::Nodes::Attribute.new(id: :id)
 
-      library = MiniTest::Mock.new
+      library = Minitest::Mock.new
       library.expect :compile_template_from_path, template, ['users/base', @view]
 
       t = RablRails::Library.stub :instance, library do

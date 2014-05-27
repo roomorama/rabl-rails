@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestJSONRenderer < MiniTest::Unit::TestCase
+class TestJSONRenderer < Minitest::Test
   describe 'JSON renderer' do
     def render
       RablRails::Renderers::JSON.render(@template, @context)
@@ -16,7 +16,7 @@ class TestJSONRenderer < MiniTest::Unit::TestCase
     end
 
     it 'extends hash renderer' do
-      RablRails::Renderers::JSON.ancestors.include?(RablRails::Renderers::Hash)
+      RablRails::Renderers::JSON.ancestors.include?(RablRails::Renderers::HASH)
     end
 
     it 'renders JSON' do

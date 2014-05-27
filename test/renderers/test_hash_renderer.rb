@@ -1,9 +1,9 @@
 require 'helper'
 
-class TestHashRenderer < MiniTest::Unit::TestCase
+class TestHASHRenderer < Minitest::Test
   describe 'hash renderer' do
     def render(locals = nil)
-      RablRails::Renderers::Hash.render(@template, @context, locals)
+      RablRails::Renderers::HASH.render(@template, @context, locals)
     end
 
     def with_cache
@@ -15,7 +15,7 @@ class TestHashRenderer < MiniTest::Unit::TestCase
     end
 
     before do
-      @cache    = MiniTest::Mock.new
+      @cache    = Minitest::Mock.new
       @resource = User.new(1, 'Marty')
       @context  = Context.new
       @context.assigns['user'] = @resource
@@ -46,7 +46,7 @@ class TestHashRenderer < MiniTest::Unit::TestCase
     end
 
     it 'uses a to_hash visitor' do
-      visitor = MiniTest::Mock.new
+      visitor = Minitest::Mock.new
       visitor.expect :instance_variable_get, @resource, [:@user]
       visitor.expect :reset_for, nil, [@resource]
       visitor.expect :visit, nil, [Array]

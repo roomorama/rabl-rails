@@ -1,7 +1,7 @@
 module RablRails
   module Renderers
     module PLIST
-      include Renderers::Hash
+      include Renderers::HASH
       extend self
 
       def format_output(hash, options = {})

@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestPListRenderer < MiniTest::Unit::TestCase
+class TestPListRenderer < Minitest::Test
   INDENT_REGEXP = /\n(\s)*/
   HEADER_REGEXP = /<\?[^>]+><![^>]+>/
 
@@ -20,7 +20,7 @@ class TestPListRenderer < MiniTest::Unit::TestCase
     end
 
     it 'extends hash renderer' do
-      RablRails::Renderers::PLIST.ancestors.include?(RablRails::Renderers::Hash)
+      RablRails::Renderers::PLIST.ancestors.include?(RablRails::Renderers::HASH)
     end
 
     it 'renders PList' do

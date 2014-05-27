@@ -1,6 +1,6 @@
 module RablRails
   module Renderers
-    module Hash
+    module HASH
       include ::RablRails::Helpers
       extend self
 

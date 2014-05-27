@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestHashVisitor < MiniTest::Unit::TestCase
+class TestHashVisitor < Minitest::Test
   describe 'hash visitor' do
     def visitor_result
       visitor = Visitors::ToHash.new(@context)
@@ -158,7 +158,7 @@ class TestHashVisitor < MiniTest::Unit::TestCase
       template.add_node(RablRails::Nodes::Attribute.new(name: :name))
       proc = ->(u) { partial('users/base', object: u) }
 
-      library = MiniTest::Mock.new
+      library = Minitest::Mock.new
       library.expect :compile_template_from_path, template, ['users/base', @context]
 
       @nodes << RablRails::Nodes::Code.new(:user, proc)

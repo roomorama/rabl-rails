@@ -24,7 +24,7 @@ module Configurable
     RablRails.configuration.send(accessor, old_value)
   end
 end
-Minitest::Unit::TestCase.send(:include, Configurable)
+Minitest::Test.send(:include, Configurable)
 
 module Rails
   def self.cache

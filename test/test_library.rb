@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestLibrary < MiniTest::Unit::TestCase
+class TestLibrary < Minitest::Test
   RablRails::Library.send(:attr_reader, :cached_templates)
 
   describe 'library' do
@@ -13,7 +13,7 @@ class TestLibrary < MiniTest::Unit::TestCase
 
     describe '#get_rendered_template' do
       it 'compiles and renders template' do
-        renderer = MiniTest::Mock.new
+        renderer = Minitest::Mock.new
         renderer.expect :render, '{}', [@template, @context, nil]
 
         result = @library.stub :compile_template_from_source, @template do
@@ -53,7 +53,7 @@ class TestLibrary < MiniTest::Unit::TestCase
 
     describe '#compile_template_from_source' do
       it 'compiles a template' do
-        compiler = MiniTest::Mock.new
+        compiler = Minitest::Mock.new
         compiler.expect :compile_source, @template, ['attribute :id']
 
         result = RablRails::Compiler.stub :new, compiler do
